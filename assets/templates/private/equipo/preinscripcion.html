@@ -1,0 +1,24 @@
+<div class="col-sm-12 ">
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NOMBRE DE LA IDEA</th>
+        <th style="width:250px">ASIGNATURAS</th>
+        <th>PREINSCRITOS</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="idea in ideas">
+      <td><b>{{idea.id}}</b></td>
+      <td>{{idea.titulo}}</td>
+      <td><p ng-repeat="asignatura in idea.asignaturas">{{asignatura.nombre}}</p></td>
+      <td class="text-center">{{idea.preinscritos || 0}}</td>
+      <td><a class="btn btn-success" ng-click="seleccionarIdea(idea)" href="">Detalles</a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>

@@ -1,0 +1,217 @@
+.equipos {
+  width: 90%;
+  margin: 0 auto;
+
+  .tab {
+    width: 100%;
+    list-style-type: none;
+    text-align: center;
+    li {
+      display: inline-block;
+      &:hover {
+        border-bottom: 5px @theme-color solid;
+      }
+
+      .active {
+        border-bottom: 5px @theme-color-hover solid;
+        &:hover {
+          border-bottom: 0;
+        }
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        width: 150px;
+        padding: 10px 20px;
+        border-radius: 10px;
+
+        text-decoration: none;
+        background-color: #F9F9F9;
+        color: black;
+        font-size: 125%;
+      }
+    }
+  }
+
+  .views {
+    width: 100%;
+    .crear {
+      width: 70%;
+      margin: 0 auto;
+      clear: both;
+
+      .estudiantes {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .estudiante {
+          display: inline-block;
+          position: relative;
+          margin: 15px;
+          font-size: 120%;
+
+          box-shadow: 5px 5px 10px @theme-color;
+          border: 2px @theme-color-hover solid;
+          border-radius: 5px;
+
+          transition: all 0.2s;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+
+    .lista {
+      width: 100%;
+
+      .card {
+        position: relative;
+        overflow: auto;
+        width: 60%;
+
+        margin: 15px auto;
+        padding: 10px;
+
+        box-shadow: 5px 5px 10px @theme-color;
+        border: 2px @theme-color-hover solid;
+        border-radius: 5px;
+
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          padding: 25px;
+        }
+
+        .detalles {
+          float: left;
+          width: 80%;
+        }
+
+        .opciones {
+          text-align: right;
+          position: relative;
+          float: right;
+          width: 18%;
+
+          .aceptar {
+            color: green;
+            transition: all 0.2s;
+            &:hover {
+              color: @theme-color;
+              font-size: 125%;
+            }
+          }
+          .rechazar {
+            color: red;
+            transition: all 0.2s;
+            &:hover {
+              color: darkRed;
+              font-size: 125%;
+            }
+          }
+          .salir {
+            transition: all 0.2s;
+            &:hover {
+              color: @theme-color;
+              font-size: 125%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.equipo {
+  width: 90%;
+  margin: 0 auto;
+
+  .tab {
+    width: 100%;
+    list-style-type: none;
+    text-align: center;
+    li {
+      display: inline-block;
+      &:hover {
+        border-bottom: 5px @theme-color solid;
+      }
+
+      .active {
+        border-bottom: 5px @theme-color-hover solid;
+        &:hover {
+          border-bottom: 0;
+        }
+      }
+
+      a {
+        display: block;
+        text-align: center;
+        width: 150px;
+        padding: 10px 20px;
+        border-radius: 10px;
+
+        text-decoration: none;
+        background-color: #F9F9F9;
+        color: black;
+        font-size: 125%;
+      }
+    }
+  }
+
+  .views {
+    width: 100%;
+
+    .informacion {
+      float: left;
+      width: 100%;
+
+      .inscripcion {
+        vertical-align: top;
+        display: inline-block;
+        width: 50%;
+        float: left;
+
+        padding: 15px;
+        box-shadow: 5px 5px 10px @theme-color;
+        border: 2px @theme-color-hover solid;
+        border-radius: 5px;
+      }
+
+      .integrantes {
+        display: inline-block;
+        width: 40%;
+        float: right;
+
+        .agregar {
+          padding: 15px;
+          box-shadow: 5px 5px 10px @theme-color;
+          border: 2px @theme-color-hover solid;
+          border-radius: 5px;
+        }
+
+        .integrante {
+          margin: 10px 5px;
+          padding: 15px;
+
+          box-shadow: 5px 5px 10px @theme-color;
+          border: 2px @theme-color-hover solid;
+          border-radius: 5px;
+
+          label {
+            display: inline-block;
+          }
+          p {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

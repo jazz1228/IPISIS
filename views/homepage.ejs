@@ -1,0 +1,15 @@
+<div id="wrapper" ng-app="ipisis" ng-controller="mainCtrl">
+  <!-- TOPBAR -->
+  <topbar toggled="toggled"></topbar>
+  <!--  -->
+
+  <!-- SIDEBAR -->
+  <sidebar toggled="toggled"></sidebar>
+  <!--  -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper" ng-class="{toggled: toggled}">
+    <div ui-view></div>
+  </div>
+  <!--  -->
+</div>

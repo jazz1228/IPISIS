@@ -1,0 +1,81 @@
+<div class="crear">
+  <form name="semestreForm" ng-submit="guardar()" novalidate>
+
+    <fieldset>
+      <div class="control-group form-group col-sm-12">
+        <div ng-class="{'has-error': semestreForm.codigo.$invalid && (!semestreForm.$pristine || semestreForm.$submitted || semestreForm.codigo.$touched),
+        'has-success': semestreForm.codigo.$valid}">
+        <legend for="">Código</legend>
+        <input MAXLENGTH="6" type="text" class="form-control" name="codigo" ng-model="semestre.codigo" ng-maxlength="6" ng-minlength="6"
+        placeholder="e.g 2017-2" ng-readonly="semestre.modo == 'ACTUALIZAR'" required>
+
+        <!-- VALIDACIONES DEL CÓDIGO -->
+        <div ng-messages="semestreForm.codigo.$error" ng-if="semestreForm.codigo.$touched || semestreForm.$submitted" ng-messages-multiple>
+          <p ng-message="required" class="help-block"><b>Debe ingresar un código de semestre válido, ejemplo (2017-2).</b></p>
+        </div>
+        <div ng-messages="semestreForm.codigo.$error" >
+          <p ng-message="maxlength" class="help-block"><b>Debe ingresar un código de la forma 2017-1.</b></p>
+          <p ng-message="minlength" class="help-block"><b>Debe ingresar un código de la forma 2017-1.</b></p>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <br>
+
+  <fieldset >
+    <legend>Semestre</legend>
+    <div class="form-group col-md-6" ng-repeat="item in semestre.semestreFechas">
+      <label class="">{{item.nombre}}</label>
+      <div class="">
+        <p class="input-group">
+          <input type="text" class="form-control" uib-datepicker-popup="{{semestre.format}}"
+          ng-model="item.fecha" is-open="item.opened" datepicker-options="semestre.opcionesFecha"
+          ng-required="true" clear-text="Borrar" close-text="Cerrar" current-text="Hoy"/>
+
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open(item)">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </span>
+        </p>
+      </div>
+
+      <div class="">
+        <div uib-timepicker ng-model="item.fecha" hour-step="semestre.opcionesTiempo.hstep"
+        minute-step="semestre.opcionesTiempo.mstep" show-meridian="semestre.opcionesTiempo.ismeridian"
+        show-spinners="false"></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset >
+    <legend>Inscripción</legend>
+    <div class="form-group col-md-6" ng-repeat="item in semestre.inscripcionFechas">
+      <label class="">{{item.nombre}}</label>
+      <div class="">
+        <p class="input-group">
+          <input type="text" class="form-control" uib-datepicker-popup="{{semestre.format}}"
+          ng-model="item.fecha" is-open="item.opened" datepicker-options="semestre.opcionesFecha"
+          ng-required="true" clear-text="Borrar" close-text="Cerrar" current-text="Hoy"/>
+
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open(item)">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </span>
+        </p>
+      </div>
+
+      <div class="">
+        <div uib-timepicker ng-model="item.fecha" hour-step="semestre.opcionesTiempo.hstep"
+        minute-step="semestre.opcionesTiempo.mstep" show-meridian="semestre.opcionesTiempo.ismeridian"
+        show-spinners="false"></div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="col-md-12 text-center">
+    <button type="submit" class="btn btn-success col-md-12" ng-if="semestre.modo == 'ACTUALIZAR'">Guardar semestre</button>
+    <button type="submit" class="btn btn-success col-md-12" ng-if="semestre.modo == 'CREAR'">Crear semestre</button>
+  </div>
+</form>
+</div>

@@ -1,0 +1,41 @@
+<div class="informacion">
+  <div class="inscripcion">
+    <label for="">Nombre del equipo</label>
+    <input type="text" class="form-control" ng-model="equipo.nombre" readonly>
+    <label for="">Asignatura</label>
+    <input type="text" class="form-control" ng-model="equipo.inscripcion.materia.nombre" readonly>
+    <label for="">Nombre del proyecto</label>
+    <input type="text" class="form-control" ng-model="equipo.inscripcion.proyecto.nombre" readonly>
+    <label for="">Nombre del Tutor</label>
+    <input type="text" class="form-control" ng-model="equipo.inscripcion.oferta.profesor.nombre" readonly>
+    <label for="">Correo del tutor</label>
+    <input type="text" class="form-control" ng-model="equipo.inscripcion.oferta.profesor.correo" readonly>
+  </div>
+
+  <div class="integrantes">
+    <div class="agregar" >
+      <form class="form-inline" ng-submit="addEstudiante()">
+        <div class="form-group">
+          <label for="" class="">Estudiante</label>
+          <input type="text" class="form-control" ng-model="usuario.nombre" placeholder="Nombre de usuario" required>
+          <input type="submit" class="btn btn-success" value="Añadir" >
+        </div>
+      </form>
+    </div>
+    <div class="integrante" ng-repeat="integrante in equipo.estudiantes">
+      <div class="info-group">
+        <label>Nombre:</label>
+
+        <p>{{integrante.nombre}}</p>
+      </div>
+      <div class="info-group">
+        <label>Correo:</label>
+        <p>{{integrante.nombreUsuario}}@udea.edu.co</p>
+      </div>
+      <div class="info-group">
+        <label>Estado:</label>
+        <p>{{integrante.EquipoEstudiante.estadoInvitacion}}</p>
+      </div>
+    </div>
+  </div>
+</div>
