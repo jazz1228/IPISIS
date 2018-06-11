@@ -382,18 +382,17 @@ module.exports = {
           profesorId: tutor,
           semestreCodigo: semestre
         };
+	
      //Se traen los correos de los profesores que seran tutores de cada idea
-          Idea.findAll({where:{id:oferta.ideaId},
-                              include:[{model:Proponente, as:'proponentes'},
-                                        {model:Oferta, as:'ofertas', include:[{model:Profesor, as:'profesor'}]}
-                            ]        
-        })
-        .then(ideas => {
-          ideas[unicaIdea].ofertas.profesor.forEach(function(profe,i,array){
-            correos[i]=profe.correo;            
-          });
-          title=ideas[unicaIdea].titulo;
+         Oferta.findAll({include:[{model:Idea, as:'idea',where:{id:oferta.ideaId}},{model:Profesor, as:'profesor', where:{id:oferta.profesorId}}]        
+        }).then(ideas => {
+	  
+          correos[0]=ideas[unicaIdea].profesor.correo;
+            
+	    console.log(correos[0]);           
           
+          title=ideas[unicaIdea].idea.titulo;
+          console.log(title);
           output = `
          <h3>La idea con el nombre `+title+` ha sido ofertada</h3>
          <h3>Usted ha sido selecionado como tutor del Proyecto intregador</h3>`;
