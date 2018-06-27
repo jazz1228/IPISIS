@@ -1,0 +1,49 @@
+<div class="modal-header text-center">
+  <h4 class="modal-title">{{ideaSeleccionada.titulo | uppercase}}</h4>
+</div>
+
+<div class="modal-body text-justify">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <label><strong>Descripción:</strong></label><br>
+      <textarea class="form-control" style="resize:none" rows="6" disabled="true">{{ideaSeleccionada.descripcion | capitalize}}</textarea>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <label><strong>Integrantes:</strong></label>
+    </div>
+    <div class="col-md-5">
+      {{ideaSeleccionada.num_miembros}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <label><strong>Asignatura:</strong></label>
+    </div>
+    <div class="col-md-5">
+      <p ng-repeat="asignatura in ideaSeleccionada.asignaturas">{{asignatura.nombre}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table table-condensed table-bordered table-hover">
+        <label><strong>Prerrequisito(s):</strong></label>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Materia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="pre in ideaSeleccionada.prerrequisitos">
+            <td>{{pre.codigo}}</td>
+            <td>{{pre.nombre}}</td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+  <br>
+</div>

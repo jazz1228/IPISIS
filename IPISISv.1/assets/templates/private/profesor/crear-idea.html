@@ -1,0 +1,244 @@
+<div class="page-header text-center">
+	<h1><font color="green"><strong id="top">Inscripción de Idea</strong></font></h1></div>
+	<div class="row">
+		<label class="col-md-10 col-md-offset-2 requerido"><em><u>Campos marcados con * son obligatorios</u></em></label><br><br>
+	</div>
+
+	<div class="inscribirIdea">
+		<form class="form-horizontal" name="ideaForm" ng-submit="inscribirIdea()" novalidate>
+
+			<!-- TITULO -->
+			<div class="form-group">
+				<div ng-class="classValidacion(ideaForm, 'titulo')">
+					<label class="control-label col-md-2 col-md-offset-2" for="titulo">Título*</label>
+					<div class="col-md-6">
+						<input type="text" class="form-control" name="titulo" ng-model="idea.titulo" id="titulo"
+						placeholder="ej. Mi Idea" autofocus required>
+					</div>
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(ideaForm, 'titulo')"
+					ng-if="mostrarValidacion(ideaForm, 'titulo')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe ingresar el titulo de la idea.</b></p>
+					</div>
+				</div>
+			</div>
+
+			<!-- DESCRIPCIÓN -->
+			<div class="form-group">
+				<div ng-class="classValidacion(ideaForm, 'descripcion')">
+					<label class="control-label col-md-2 col-md-offset-2" for="descripcion">Descripción*</label>
+					<div class="col-md-6">
+						<textarea class="form-control" rows="2" name="descripcion" ng-model="idea.descripcion"
+						style="resize: none; height: 200px" placeholder="Escriba aquí la descripción para la idea."
+						name="descripcion" id="descripcion" required></textarea>
+					</div>
+
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(ideaForm, 'descripcion')"
+					ng-if="mostrarValidacion(ideaForm, 'descripcion')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe ingresar la descripción de la idea.</b></p>
+					</div>
+				</div>	
+			</div>
+
+			<div class="form-group">
+				<!-- NÚMERO DE EQUIPOS -->
+				<div ng-class="classValidacion(ideaForm, 'num_equipos')">
+					<label class="control-label col-md-2 col-md-offset-2" for="num_equipos">Número de equipos*</label>
+					<div class="col-md-1">
+						<select class="form-control" name="num_equipos" ng-model="idea.numEquipos" id="num_equipos" required>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+						</select>
+					</div>
+				</div>
+
+				<div ng-class="classValidacion(ideaForm, 'num_miembros')">
+					<!-- NÚMERO DE MIEMBROS -->
+					<label class="control-label derecha col-md-3" for="num_miembros">Integrantes por grupo*</label>
+					<div class="col-md-1">
+						<select class="form-control" name="num_miembros" ng-model="idea.numMiembros" id="num_miembros" required>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+						</select>
+					</div>
+				</div>
+
+				<div ng-class="classValidacion(ideaForm, 'num_equipos')">
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(ideaForm, 'num_equipos')"
+					ng-if="mostrarValidacion(ideaForm, 'num_equipos')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe seleccionar la cantidad de equipos.</b></p>
+					</div>
+				</div>
+
+				<div ng-class="classValidacion(ideaForm, 'num_miembros')">
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(ideaForm, 'num_miembros')"
+					ng-if="mostrarValidacion(ideaForm, 'num_miembros')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe seleccionar la cantidad de miembros por equipo.</b></p>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- CANTIDAD DE ASIGNATURAS -->
+			<div class="form-group ">
+				<div ng-class="classValidacion(ideaForm, 'asignaturas')">
+					<label class="control-label col-md-2 col-md-offset-2" for="asignaturas">Asignaturas*</label>
+					<div class="col-md-6">
+						<input type="number" class="form-control" name="asignaturas" id="asignaturas"
+						ng-change="rangoAsignaturas(numAsignaturas)" ng-model='numAsignaturas' min="1" max="2"
+						placeholder="Cantidad de asignaturas a ingresar." required>
+					</div>
+
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(ideaForm, 'asignaturas')"
+					ng-if="mostrarValidacion(ideaForm, 'asignaturas')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe ingresar la cantidad de asignaturas de la idea.</b></p>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- LISTA DE ASIGNATURAS -->
+			<div class="form-group" ng-repeat="n in rangeAsignaturas" ng-form="asignaturaForm">
+				<div ng-class="classValidacion(asignaturaForm, 'asignatura')">
+
+					<label class="control-label col-md-2 col-md-offset-2">Asignatura #{{$index + 1}}</label>
+					<div class="col-md-6">
+						<select class="form-control" ng-model="idea.asignaturas[$index]"
+						name="asignatura" id="asignaturas{{$index}}" required>
+							<option value="" disabled selected>Asignatura</option>
+							<option ng-repeat="asignatura in asignaturas"
+							value="{{asignatura.codigo}}" >{{asignatura.codigo + " - " +asignatura.nombre}}</option>
+						</select>
+					</div>
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(asignaturaForm, 'asignatura')"
+					ng-if="mostrarValidacion(asignaturaForm, 'asignatura')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe seleccionar la asignatura.</b></p>
+					</div>
+				</div>
+			</div>
+
+			<!-- CANTIDAD DE PROPONENTES -->
+			<div class="form-group ">
+				<div ng-class="classValidacion(ideaForm, 'proponentes')">
+					<label class="control-label col-md-2 col-md-offset-2" for="proponente">Cantidad de Proponentes *</label>
+					<div class="col-md-6">
+						<input type="number" class="form-control" name="proponentes" id="proponente"
+						ng-change="rangoProponentes(numProponente)" ng-model='numProponente' min="1" max="20"
+						placeholder="Cantidad de proponentes a ingresar." required>
+					</div>
+
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(ideaForm, 'proponentes')"
+					ng-if="mostrarValidacion(ideaForm, 'proponentes')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe ingresar la cantidad de proponentes de la idea.</b></p>
+					</div>
+				</div>
+			</div>
+
+			<!-- LISTA DE PROPONENTES -->
+			<div class="form-group" ng-repeat="n in rangeProponentes" ng-form="proponenteForm">
+
+				<label class="control-label col-md-2 col-md-offset-2">Proponente #{{$index + 1}}</label>
+				<div ng-class="classValidacion(proponenteForm, 'proponente')">
+					<!-- TIPO PROPONENTE -->
+					<div class="col-md-2">
+						<select class="form-control" ng-model="idea.proponentes[$index].tipo" name="proponente" id="proponente{{$index}}" required>
+							<option value="" disabled selecte>Tipo</option>
+							<option value="2">Estudiante</option>
+							<option value="1">Profesor</option>
+							<option value="3">Organización</option>
+						</select>
+					</div>
+				</div>
+
+				<div ng-class="classValidacion(proponenteForm, 'nombre')">
+					<!-- NOMBRE PROPONENTE -->
+					<div class="col-md-4">
+						<input type="text" class="form-control" ng-model="idea.proponentes[$index].nombre" name="nombre"
+						placeholder="Nombre del proponente" required>
+					</div>
+				</div>
+
+				<div ng-class="classValidacion(proponenteForm, 'correo')">
+					<!-- CORREO PROPONENTE -->
+					<div class="col-md-6 col-md-offset-4" style="margin-top:5px">
+						<input type="email" class="form-control" ng-model="idea.proponentes[$index].correo" name="correo"
+						id="email" placeholder="ej. usuario@udea.edu.co" required>
+						<div ng-show="Inscribir.email.$error.email" role="alert">Email invalido</div>
+					</div>
+				</div>
+
+
+				<div ng-class="classValidacion(proponenteForm, 'proponente')">
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(proponenteForm, 'proponente')"
+					ng-if="mostrarValidacion(proponenteForm, 'proponente')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe seleccionar el tipo de proponente.</b></p>
+					</div>
+				</div>
+
+				<div ng-class="classValidacion(proponenteForm, 'nombre')">
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(proponenteForm, 'nombre')"
+					ng-if="mostrarValidacion(proponenteForm, 'nombre')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe ingresar el nombre del proponente.</b></p>
+					</div>
+				</div>
+
+				<div ng-class="classValidacion(proponenteForm, 'correo')">
+					<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(proponenteForm, 'correo')"
+					ng-if="mostrarValidacion(proponenteForm, 'correo')" multiple>
+						<p ng-message="required" class="help-block"><b>Debe ingresar el correo del proponente.</b></p>
+						<p ng-message="email" class="help-block"><b>El correo electrónico no es valido.</b></p>
+					</div>
+				</div>
+			</div>
+
+			<!-- LISTA PRERREQUISITOS -->
+			<div class="col-md-10 col-md-offset-2">
+				<h3><font color="green"><strong class="control-label">Prerrequisitos*</strong></font></h3>
+			</div>
+			<div class="form-group">
+				<div class="col-md-3 col-md-offset-2">
+					<input class="form-control" type="text" placeholder="ej. Análisis" name="name" ng-model="filtro" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="pre-scrollable col-md-8 col-md-offset-2">
+					<ul ng-repeat="area in areas" class="list-group">
+						<li ng-show="!filtro" title="Area Académica" class="list-group-item titulo">{{area.nombre}}</li>
+						<li title="Click para seleccionar" ng-click="guardarPrerrequisito(materia.codigo, materia.nombre);"
+						href="" ng-repeat="materia in area.materias | filter: filtro" ng-if="idea.prerrequisitos.indexOf(materia.codigo)==-1"
+						class="list-group-item item">{{materia.nombre}}</li>
+					</ul>
+				</div>
+			</div>
+			<br>
+
+			<!-- PRERREQUISITOS SELECCIONADOS -->
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<table ng-show="idea.materia.length!=0" class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th class="text-center">Prerrequisitos Seleccionados</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="nomMateria in nomMaterias">
+								<td>
+									<div class="row">
+										<li title="Click para descartar" ng-click="eliminarPrerrequisito($index)"
+										class="col-md-8 col-md-offset-2 item">{{nomMateria}}</li>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="text-center">
+						<button class="btn btn-success btn-lg"><strong>Inscribir Idea</strong></button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>

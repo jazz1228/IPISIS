@@ -1,0 +1,124 @@
+<div class="page-header text-center">
+  <h1>
+    <font color="green">
+      <strong id="top">Compromisos</strong>
+    </font>
+  </h1>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th ng-click="">#</th>
+      <th ng-click="">NOMBRE COMPROMISO</th>
+      <th ng-click="">FECHA LÍMITE</th>
+      <th ng-click="">PORCENTAJE</th>
+      <th ng-click="">ESTADO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="compromiso in compromisos" ng-click="seleccionarCompromiso(compromiso)" data-toggle="modal" data-target="#myModal">
+      <td>{{$index + 1}}</td>
+      <td>{{compromiso.materiaCompromiso.titulo}}</td>
+      <td>{{compromiso.materiaCompromiso.fechaEquipo.substring(0,10)}}</td>
+      <td>{{compromiso.materiaCompromiso.porcentaje}}%</td>
+      <td>{{compromiso.estado}}</td>
+  </tbody>
+  </tr>
+</table>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content" ng-if="acta">
+        <div class="modal-body text-center" style="padding-left: 50px;padding-right: 50px">
+          <ng-bind-html ng-bind-html="encabezado | trusted"></ng-bind-html>
+          <p class="text-center" style="color:black">
+            <strong>
+              <font size="14"></font>{{semestre}}</strong>
+            </strong>
+          </p>
+          <p class="text-center" style="color:black">
+            <strong>{{fechaActual}}</strong>
+          </p>
+          <br>
+          <br>
+          <p style="color:black" align="left">
+            <strong>Título del proyecto</strong>
+          </p>
+          <p style="color:black" align="left">{{tituloProyecto}}</p>
+          <br>
+          <p style="color:black" align="left">
+            <strong>Tutor del proyecto</strong>
+          </p>
+          <p style="color:black" align="left">{{tutorProyecto}}</p>
+          <br>
+          <p style="color:black" align="left">
+            <strong>Ejecutores del proyecto</strong>
+          </p>
+          <div ng-repeat="estudiante in estudiantes">
+            <p style="color:black" align="left">{{estudiante.nombre | uppercase}}</p>
+            <p style="color:black" align="left">
+              <strong>C.C.:</strong> {{estudiante.identificacion}}</p>
+          </div>
+          <br>
+          <p style="color:black" align="left">
+            <strong> Código, asignatura y grupo</strong>
+          </p>
+          <p style="color:black" align="left">{{codigo +" "+asignatura + " grupo "+grupo}}</p>
+          <br>
+          <br>
+          <ng-bind-html ng-bind-html="piePagina | trusted"></ng-bind-html>
+        </div>
+        <div class="form-check" style="margin-left: 50px" ng-show="estadoActa !='ENTREGADO'">
+          <input type="checkbox" class="form-check-input" ng-model="terminos">
+          <label class="form-check-label" style="color:black">Acepto términos y condiciones</label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="button" ng-disabled="!terminos" ng-show="estadoActa != 'ENTREGADO'" class="btn btn-success" data-dismiss="modal" ng-click="aceptarTerminos(terminos)">Aceptar</button>
+        </div>
+    </div>
+    <div class="modal-content" ng-if="noActa">
+      <div class="modal-body">
+        <div class="row">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <br>
+              <!-- Encabezado-->
+              <ng-bind-html ng-bind-html="encabezado | trusted"></ng-bind-html>
+            </div>
+          </div>
+        </div>
+        <!-- Contenido-->
+        <div ng-repeat="i in getNumber(numSeccionesCompromiso) track by $index">
+          <div class="row">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <h4>
+                  <b>{{seccionesCompromiso[$index].nombre}}</b>
+                </h4>
+                <br>
+              </div>
+              <div class="col-md-10 col-md-offset-1">
+                <ng-bind-html ng-bind-html="seccionesCompromiso[$index].guia | trusted"></ng-bind-html>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <br>
+              <!-- Pie de página-->
+              <ng-bind-html ng-bind-html="piePagina | trusted"></ng-bind-html>
+            </div>
+          </div>
+        </div>
+        <br>
+        <button type="button" class="btn btn-default" data-dismiss="modal" disableds>Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

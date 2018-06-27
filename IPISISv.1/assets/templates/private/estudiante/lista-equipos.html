@@ -1,0 +1,16 @@
+<div class="lista">
+  <blockquote class="card" ng-repeat="equipo in equipos" ng-click="seleccionarEquipo(equipo)">
+    <div class="detalles" >
+      <p>{{equipo.nombre}}</p>
+      <small>Creado el {{equipo.fechaCreacion | date:'fullDate'}}</small>
+    </div>
+    <div class="opciones">
+      <span class="glyphicon glyphicon-ok aceptar" ng-if="mostrarInvitacion(equipo)"
+      ng-click="$event.stopPropagation(); procesarInvitacion(equipo, 1)"></span>
+      <span class="glyphicon glyphicon-remove rechazar" ng-if="mostrarInvitacion(equipo)"
+      ng-click="$event.stopPropagation(); procesarInvitacion(equipo, 2)"></span>
+      <span class="glyphicon glyphicon-trash salir" ng-if="mostrarSalir(equipo)"
+      ng-click="$event.stopPropagation(); salirEquipo(equipo)"></span>
+    </div>
+  </blockquote>
+</div>

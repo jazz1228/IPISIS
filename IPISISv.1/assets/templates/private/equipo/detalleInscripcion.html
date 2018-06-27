@@ -1,0 +1,77 @@
+<!-- Modal content-->
+<div class="modal-header text-center">
+  <h4 class="modal-title">{{ofertaSeleccionada.idea.titulo | uppercase}}</h4>
+</div>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <label><strong>Descripción:</strong></label><br>
+    <textarea class="form-control" style="resize:none" rows="6" disabled="true">{{ofertaSeleccionada.idea.descripcion | capitalize}}</textarea>
+  </div>
+</div><br>
+<div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <label><strong>Tutor:</strong></label>
+  </div>
+  <div class="col-md-6">
+    {{ofertaSeleccionada.profesor.nombre}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <label><strong>Cantidad de miembros:</strong></label>
+  </div>
+  <div class="col-md-6">
+    {{ofertaSeleccionada.idea.numMiembros}}
+  </div>
+</div><br>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <table class="table table-condensed table-bordered table-hover">
+      <label><strong>Asignaturas:</strong></label>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="asignatura in ofertaSeleccionada.idea.asignaturas">
+          <td>{{asignatura.codigo}}</td>
+          <td>{{asignatura.nombre}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <table class="table table-condensed table-bordered table-hover">
+      <label><strong>Prerrequisito(s):</strong></label>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Materia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="pre in ofertaSeleccionada.idea.prerrequisitos">
+          <td>{{pre.codigo}}</td>
+          <td>{{pre.nombre}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <label><strong>Asignatura a inscribir:</strong></label>
+  </div>
+  <div class="col-md-6">
+    <select class="form-control" ng-model="materia">
+      <option value='' disabled>Seleccione la asignatura</option>
+      <option ng-repeat="asignatura in ofertaSeleccionada.idea.asignaturas" value="{{asignatura.codigo}}">{{asignatura.nombre}}</option>
+    </select>
+  </div>
+</div>
