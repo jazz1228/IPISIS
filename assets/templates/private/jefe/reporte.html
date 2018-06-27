@@ -1,0 +1,35 @@
+<div class="semestres">
+  <ul class="tab">
+    <li style="cursor: pointer"><a ng-click="exportarExcel()" ui-sref-active="active">Exportar a excel</a></li>
+  </ul>
+</div>
+<div class="lista" id="exportable">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>GRUPO MARES</th>
+        <th>NOMBRE DEL PROYECTO</th>
+        <th>ESTUDIANTES</th>
+        <th>CORREO</th>
+        <th>TUTOR</th>
+        <th>CORREO</th>
+        <th>ESTADO</th>
+        <th>OBSERVACION</th>
+        <th>FECHA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="dato in reporte | orderBy:'proyecto'">
+        <td>{{dato.grupo_mares}}</td>
+        <td>{{dato.proyecto}}</td>
+        <td>{{dato.estudiante}}</td>
+        <td>{{dato.estudiante_email}}</td>
+        <td>{{dato.tutor}}</td>
+        <td>{{dato.tutor_email}}</td>
+        <td>{{dato.estado}}</td>
+        <td>{{dato.observacion}}</td>
+        <td>{{dato.fecha_actualizacion}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

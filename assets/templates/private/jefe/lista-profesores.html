@@ -1,0 +1,33 @@
+<div class="" style="width: 70%; margin: auto">
+  <div class="page-header text-center">
+    <h1><font color="green"><strong>Lista de profesores</strong></font></h1>
+  </div>
+
+  <!-- FORMULARIO PARA EL FILTRADO DE LA LISTA DE PROFESORES -->
+  <div ng-show="profesores.length" class="inner-addon left-addon col-sm-12" style="margin-bottom:15px">
+    <i class="glyphicon glyphicon-search"></i>
+    <input type="text" class="form-control" ng-model="buscar.nombre" placeholder="Buscar el nombre del profesor." />
+  </div>
+
+  <!-- LISTA DE PROFESORES -->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th ng-click="ordenarPor('$index')"><a>#</a></th>
+        <th ng-click="ordenarPor('nombre')"><a>USUARIO</a></th>
+        <th ng-click="ordenarPor('nombre')"><a>NOMBRE</a></th>
+        <th ng-click="ordenarPor('correo')"><a>CORREO ELECTRONICO</a></th>
+        <th ng-click="ordenarPor('correo')"></a>TIPO</a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="profesor in profesores | orderBy:ordenado | filter:buscar">
+        <td>{{$index + 1}}</td>
+        <td>{{profesor.nombreUsuario}}</td>
+        <td>{{profesor.nombre}}</td>
+        <td>{{profesor.correo}}</td>
+        <td>{{profesor.tipo}}</td>
+      </tbody>
+    </tr>
+  </table>
+</div>

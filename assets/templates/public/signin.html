@@ -1,0 +1,49 @@
+<div class="signup-container col-sm-6  col-sm-offset-3" style="padding-top: 10%">
+  <form ng-submit="signinUsuario()" id="sign-up-form" class="form-signin" name="signin" novalidate>
+    <h2 class="form-signin-heading">Iniciar sesión</h2>
+
+    <div class="row">
+
+      <!-- USUARIO-->
+      <div class="control-group form-group col-sm-12">
+        <div ng-class="{'has-error': signin.usuario.$invalid && (!signin.$pristine || signin.$submitted || signin.usuario.$touched),
+        'has-success': signin.usuario.$valid}">
+        <label for="usuario">Usuario</label>
+        <input type="text" name="usuario" placeholder="Nombre de usuario del LIS"
+        class="form-control" ng-model="user.usuario" required>
+
+        <!-- VALIDACIONES DE CUENTA DE USUARIO -->
+        <div ng-messages="signin.usuario.$error" ng-if="signin.usuario.$touched || signin.$submitted" ng-messages-multiple>
+          <p ng-message="required" class="help-block"><b>Debe ingresar una cuenta de usuario.</b></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTRASEÑA -->
+    <div class="control-group form-group col-sm-12">
+      <div ng-class="{'has-error': signin.contrasena.$invalid && (!signin.$pristine || signin.$submitted || signin.contrasena.$touched),
+      'has-success': signin.contrasena.$valid}">
+      <label for="contrasena">Contraseña</label>
+      <input type="password" name="contrasena" placeholder="Contraseña del LIS."
+      class="form-control" ng-model="user.contrasena" required>
+
+      <!-- VALIDACIONES DE CONTRASEÑA -->
+      <div ng-messages="signin.contrasena.$error" ng-if="signin.contrasena.$touched || signin.$submitted" ng-messages-multiple>
+        <p ng-message="required" class="help-block"><b>Debe ingresar una contraseña.</b></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INFORMACIÓN DE ERRORES -->
+<div class="alert" ng-class="{'alert-success': !loginError, 'alert-danger': loginError}" ng-show="loginError">
+  <button type="button" class="close" ng-click="switchError('loginError')">×</button>
+  <strong> {{errorMensaje}} </strong>
+</div>
+
+<button class="btn btn-success btn-lg btn-block" type="submit">
+  <span ng-show="!signing" >Confirmar </span>
+  <span ng-show="signing">Ingresando <i class="glyphicon glyphicon-refresh gly-spin"></i></span>
+</button>
+</form>
+</div>

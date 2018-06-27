@@ -1,0 +1,189 @@
+<div class="page-header text-center">
+  <H1><font color="green"><strong>Ideas Propuestas</strong></font></H1>
+</div>
+
+<div ng-show="ideas.length" class="inner-addon left-addon col-md-12" style="margin-bottom:15px">
+  <i class="glyphicon glyphicon-search"></i>
+  <input type="text" class="form-control" ng-model="buscar.titulo" placeholder="Buscar el nombre de la idea." />
+</div>
+
+<div ng-show="!ideas.length" class="col-md-12 text-center">
+  <h1>No hay ideas propuestas</h1>
+</div>
+
+<div ng-show="ideas.length" class="text-center">
+  <form class="form-vertical text-center" name="Aprobar">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="sel">&nbsp;</th>
+              <th class="cod">
+                <div class="text-center">CÓDIGO</div>
+              </th>
+              <th class="tit">
+                <div class="text-center">NOMBRE</div>
+              </th>
+              <th class="des">
+                <div class="text-center">DESCRIPCIÓN</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class=" pre-scrollable">
+            <tr ng-repeat="idea in ideas | filter: buscar">
+              <td class="filterable-cell sel"><input ng-click="guardarOdescartar(idea);" ng-checked="seleccionar(idea.id)" type="checkbox" name="idea_id" /></td>
+              <td class="filterable-cell cod">{{idea.id}}</td>
+              <td class="filterable-cell tit">{{idea.titulo | uppercase}}</td>
+              <td class="filterable-cell text-center desc"><label class="item glyphicon glyphicon-list-alt" title="Mostrar descripción" data-toggle="modal" data-target="#myModal" ng-click="mostrar(idea);"></label></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3 col-md-offset-2 text-left" for="observacion">Observación*</label>
+        <div class="col-md-8 col-md-offset-2">
+          <textarea class="form-control observacion" rows="2" name="observacion" ng-model="observacion" placeholder="Escriba aquí su observación" id="observacion" ng-class="{'has-error': Aprobar.observacion.$invalid, 'has-success': Aprobar.observacion.$valid}"
+            autofocus required></textarea>
+          <div ng-show="Aprobar.observacion.$error.required || Aprobar.observacion.$touched"></div>
+        </div>
+      </div>
+    </div><br><br><br>
+
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <button type="button" name="opcion" ng-disabled="Aprobar.observacion.$invalid || ideasSelected.length==0" class="btn btn-success btn-lg" data-toggle="modal" data-target="#aprobarModal">Aprobar</button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" name="opcion" ng-disabled="Aprobar.observacion.$invalid || ideasSelected.length==0" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#rechazarModal">Rechazar</button>
+      </div>
+
+      <!-- inicio aprobarModal -->
+      <div id="aprobarModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-body text-justify">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <label font-color="green"><strong></strong>¿Está seguro que desea aprobar las ideas seleccionadas?</label><br>
+                </div>
+              </div><br>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" ng-click='aprobarIdeas(1)' data-dismiss="modal">Aceptar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fin aprobarModal -->
+
+      <!-- inicio rechazarModal -->
+      <div id="rechazarModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+
+          <div class="modal-content">
+            <div class="modal-body text-justify">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <label font-color="green"><strong></strong>¿Está seguro que desea rechazar las ideas seleccionadas?</label><br>
+                </div>
+              </div><br>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" ng-click='aprobarIdeas(2)' data-dismiss="modal">Aceptar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fin rechazarModal -->
+
+  </form>
+  </div>
+
+  <!-- Modal descripcion idea -->
+  <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="exampleModalLabel">Información de {{titulo | uppercase}}</h4>
+        </div>
+
+        <div class="modal-body text-justify">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+              <label><strong>Codigo:</strong></label>
+            </div>
+            <div class="col-md-4">{{id}}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+              <label><strong>Grupos propuestos:</strong></label>
+            </div>
+            <div class="col-md-4">
+              {{numEquipos}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+              <label><strong>Integrantes:</strong></label>
+            </div>
+            <div class="col-md-4">
+              {{numMiembros}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+              <label><strong>Asignatura:</strong></label>
+            </div>
+            <div class="col-md-4">
+              <p ng-repeat="asignatura in asignaturas">{{asignatura.nombre}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+              <label><strong>Proponente(s):</strong></label>
+            </div>
+            <div class="col-md-4">
+              <p ng-repeat="proponente in proponentes">{{proponente.nombre}}</p>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <label><strong>Descripción:</strong></label><br>
+              <textarea style="resize:none" class="form-control" id="descripcion" readonly rows="6">{{descripcion | capitalize}}</textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <table class="table table-condensed table-bordered table-hover">
+                <label><strong>Prerrequisito(s):</strong></label>
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Materia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="pre in prerrequisitos">
+                    <td>{{pre.codigo}}</td>
+                    <td>{{pre.nombre}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin modal descripción -->
+</div>

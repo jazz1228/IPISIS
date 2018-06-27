@@ -1,0 +1,127 @@
+<div class="page-header text-center">
+  <h1>
+    <font color="green">
+      <strong id="top">Bitácora</strong>
+    </font>
+  </h1>
+</div>
+
+<div class="crearBitacora">
+  <!-- Cambio -->
+  <form class="form-horizontal" name="bitacoraForm" ng-submit="crearBitacora()" novalidate>
+    <!-- Cambio ng-submit-->
+
+    <!-- FECHA -->
+    <div class="form-group">
+      <div ng-class="classValidacion(bitacoraForm, 'fechaReunion')">
+        <label class="control-label col-md-2 col-md-offset-2" for="fechaReunion">Fecha de la reunión</label>
+        <div class="col-md-6">
+          <div class="input-group">
+            <input type="text" name="fechaReunion" class="form-control" uib-datepicker-popup="{{fecha.format}}" ng-model="fecha.bitacoraFecha.fecha"
+              datepicker-options="fecha.opcionesFecha" is-open="fecha.bitacoraFecha.opened" ng-required="true" clear-text="Borrar"
+              close-text="Cerrar" current-text="Hoy" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open(fecha.bitacoraFecha)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </div>
+          <div class="col-md-10" ng-messages="inputValidacion(bitacoraForm, 'fechaReunion')" ng-if="mostrarValidacion(bitacoraForm, 'fechaReunion')"
+              multiple>
+              <p ng-message="required" class="help-block">
+                <b>Debe ingresar la fecha de la bitácora.</b>
+              </p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- CONTENIDO -->
+    <div class="form-group">
+      <div ng-class="classValidacion(bitacoraForm, 'contenido')">
+        <label class="control-label col-md-2 col-md-offset-2" for="contenido">¿Qué se hizo?</label>
+        <div class="col-md-6">
+          <!-- Cambio en el ng-model -->
+          <textarea class="form-control" rows="2" name="contenido" ng-model="bitacora.contenido" style="resize: none; height: 200px"
+            placeholder="Escriba aquí el contenido de la Bitácora." name="contenido" id="contenido" required></textarea>
+        </div>
+
+        <div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(bitacoraForm, 'contenido')" ng-if="mostrarValidacion(bitacoraForm, 'contenido')"
+          multiple>
+          <p ng-message="required" class="help-block">
+            <b>Debe ingresar el contenido de la bitácora.</b>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPROMISOS -->
+    <div class="form-group">
+      <label class="control-label col-md-2 col-md-offset-2" for="compromisos">Compromisos</label>
+      <div class="col-md-6">
+        <textarea class="form-control" rows="2" name="compromisos" ng-model="bitacora.compromisos" style="resize: none; height: 200px"
+          placeholder="Escriba aquí los compromisos para la próxima reunión." name="compromisos" id="compromisos"></textarea>
+      </div>
+    </div>
+
+    <!-- DIFICULTADES -->
+    <div class="form-group">
+      <label class="control-label col-md-2 col-md-offset-2" for="dificultades">Dificultades</label>
+      <div class="col-md-6">
+        <textarea class="form-control" rows="2" name="dificultades" ng-model="bitacora.dificultades" style="resize: none; height: 200px"
+          placeholder="Escriba aquí las dificultades presentadas en esta reunión." name="dificultades" id="dificultades"></textarea>
+      </div>
+    </div>
+
+    <!-- ARCHIVOS -->
+    <div class="form-group">
+      <label class="control-label col-md-2 col-md-offset-2" for="selectFiles">Seleccionar archivos</label>
+      <div class="col-md-6">
+        <label class="btn btn-success" for="multfile">
+          <input id="multfile" type="file" multiple="multiple" style="display:none" onchange="
+                  $(this).parent().addClass('btn-success');
+                  angular.element(this).scope().getFileDetails(this)">
+          <span id="multfile-label">Archivos&hellip;</span>
+        </label>
+      </div>
+      <div ng-if="filenames.length>0">
+        <span class="control-label col-md-2 col-md-offset-2">
+          <div></div>
+        </span>
+        <div class="col-md-6">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>NOMBRE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="name in filenames">
+                <td>{{$index + 1}}</td>
+                <td>{{name}}</td>
+                <td>
+                  <span class="glyphicon glyphicon-trash" ng-click="eliminarAnexo(name)"></span>
+                </td>
+                <td ng-if="fecha.modo == 'ACTUALIZAR' && $index<filenamesViejo.length">
+                  <a class="glyphicon glyphicon-download-alt" href="bitacora/download?id={{ids[$index]}}"></a>
+                </td>
+            </tbody>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success btn-lg" ng-if="fecha.modo == 'CREAR'">Crear bitácora</button>
+      <button type="submit" class="btn btn-success btn-lg" ng-if="fecha.modo == 'ACTUALIZAR'">Actualizar</button>
+      <button type="button" class="btn btn-success btn-lg" ng-if="fecha.modo == 'ACTUALIZAR'" ng-click="salir()">Salir</button>
+      <p></p>
+    </div>
+</div>
+</div>
+
+</form>
+</div>

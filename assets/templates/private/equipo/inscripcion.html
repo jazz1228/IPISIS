@@ -1,0 +1,29 @@
+<!-- <div class="page-header text-center">
+  <h1><font color="green"><strong id="top">Inscripción a proyectos</strong></font></h1>
+</div> -->
+
+<div >
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>NOMBRE DE LA IDEA</th>
+        <th>ID</th>
+        <th style="width:250px">ASIGNATURA</th>
+        <th>TUTOR</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="oferta in ofertas | orderBy:'idea.titulo'" ng-if="oferta.inscripciones[0].historialInscripcion.length != 1">
+      <td class="text-center">{{$index + 1}}</td>
+      <td>{{oferta.idea.titulo}}</td>
+      <td class="text-center"><b>{{oferta.id}}</b></td>
+      <td><p ng-repeat="asignatura in oferta.idea.asignaturas | orderBy:'idea.titulo'">{{asignatura.nombre}}</p></td>
+      <td>{{oferta.profesor.nombre || 'No asignado'}}</td>
+      <td><a class="btn btn-success"ng-click="seleccionar(oferta)" href="">Detalles</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

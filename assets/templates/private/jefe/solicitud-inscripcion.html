@@ -1,0 +1,35 @@
+<div class="page-header text-center">
+  <h1><font color="green"><strong id="top">Lista de inscripciones</strong></font></h1>
+</div>
+
+<div class="inner-addon left-addon col-sm-12" style="margin-bottom:15px">
+  <i class="glyphicon glyphicon-search"></i>
+  <input type="text" class="form-control" ng-model="buscar.oferta.idea.titulo"
+  placeholder="Buscar el nombre de la idea." />
+</div>
+
+<div >
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>FECHA CREACIÓN</th>
+        <th>NOMBRE DE LA IDEA</th>
+        <th>CÓDIGO</th>
+        <th>TUTOR</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="inscripcion in inscripciones | filter:buscar | orderBy:'oferta.idea.titulo'">
+      <td class="text-center">{{$index + 1}}</td>
+      <td>{{inscripcion.fechaCreacion | date:'medium'}}</td>
+      <td>{{inscripcion.oferta.idea.titulo}}</td>
+      <td>{{inscripcion.oferta.idea.id}}</td>
+      <td>{{inscripcion.oferta.profesor.nombre}}</td>
+      <td><a class="btn btn-success" ng-click="seleccionar(inscripcion)" href="">Detalles</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

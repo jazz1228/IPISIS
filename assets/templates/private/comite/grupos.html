@@ -1,0 +1,63 @@
+<div class="page-header text-center">
+	<h1><font color="green"><strong id="top">Ampliar fecha de compromiso por grupo</strong></font></h1></div>
+	<div class="row">
+		<label class="col-md-10 col-md-offset-2 requerido"><em><u>Todos los campos marcados con * son obligatorios</u></em></label><br><br>
+	</div>
+</div>
+
+<div class="grupos">
+	<form class="form-horizontal" name="gruposForm" ng-submit="buscarGrupo(compromiso.asignatura,semestre,grupos.grupo)" novalidate>
+		<div class="form-group">
+				<!-- CURSO -->
+				<!-- <div ng-class="classValidacion(ideaForm, 'num_equipos')"> -->
+					<label class="control-label col-md-2 col-md-offset-2" for="curso">Curso*</label>
+					<div class="col-md-2">
+						<select class="form-control" ng-model="compromiso.asignatura" ng-change="obtenerGrupos()"
+							name="curso" id="asignaturas{{$index}}" required>
+							<option value="" disabled selected>Seleccione un curso...</option>
+							<option ng-repeat="curso in asignaturas"
+							value="{{curso.codigo}}" >{{curso.codigo + " - " +curso.nombre}}</option>
+						</select>
+					</div>
+
+				<!--<div ng-class="classValidacion(ideaForm, 'num_miembros')">-->
+						<!-- SEMESTRE -->
+						<label class="control-label derecha col-md-2" for="semestre">Semestre*</label>
+						<div class="col-md-2">
+							<select class="form-control" id="semestre" name="semestre" ng-model="semestre" ng-change="obtenerGrupos()">
+								<option value="" disabled selected>Seleccione un semestre...</option>
+								<option ng-repeat="s in semestres" value="{{s.codigo}}">{{s.codigo}}</option>
+							</select>
+						</div>
+					<!-- </div> -->
+	</div>
+
+	<!-- GRUPO -->
+	<div class="form-group" ng-if="compromiso.asignatura && semestre">
+		<!--<div ng-class="classValidacion(ideaForm, 'titulo')">-->
+			<label class="control-label col-md-2 col-md-offset-2" for="grupo">Grupo*</label>
+			<div class="col-md-2">
+				<select class="form-control" name="grupo" ng-model="grupos.grupo" id="grupo" required>
+					<option value="" disabled selected>Seleccione un grupo...</option>
+					<option ng-repeat="group in grupos" value="{{group.grupoMares}}">{{group.grupoMares + "_"+ group.nombre}}</option>
+				</select>
+			</div>
+
+			<!--<div class="col-md-6 col-md-offset-4" ng-messages="inputValidacion(ideaForm, 'titulo')"
+			ng-if="mostrarValidacion(ideaForm, 'titulo')" multiple>
+				<p ng-message="required" class="help-block"><b>Debe ingresar el titulo de la idea.</b></p>
+			</div>
+	</div>-->
+
+		<div class="col-md-2">
+			<div class="control-button derecha col-md-2">
+				<button type="submit" class="btn btn-success btn-lg">Buscar</button>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	
+ </form>
+</div>

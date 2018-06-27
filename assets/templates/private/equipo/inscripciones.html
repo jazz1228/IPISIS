@@ -1,0 +1,29 @@
+<!-- <div class="page-header text-center">
+  <h1><font color="green"><strong id="top">Estado de inscripciones</strong></font></h1>
+</div> -->
+
+<div >
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="min-width:100px">NOMBRE DE LA IDEA</th>
+        <th>ASIGNATURA</th>
+        <th>TUTOR</th>
+        <th>OBSERVACIÓN</th>
+        <th>FECHA</th>
+        <th>ESTADO</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="inscripcion in inscripciones | orderBy:inscripcion.historialInscripcion[0].fechaActualizacion">
+      <td>{{inscripcion.oferta.idea.titulo}}</td>
+      <td>{{inscripcion.materia.nombre}}</td>
+      <td>{{inscripcion.oferta.profesor.nombre}}</td>
+      <td>{{inscripcion.historialInscripcion[0].observacion}}</td>
+      <td>{{inscripcion.historialInscripcion[0].fechaActualizacion | date:'yyyy/MM/dd hh:mm a':'+0000'}}</td>
+      <td>{{inscripcion.historialInscripcion[0].estado}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
