@@ -46,7 +46,6 @@ module.exports.policies = {
   EstudianteController: {
     getBySession: 'isEstudiante'
   },
-<<<<<<< HEAD
 
   ProyectoController: {
     getByTutor: 'isProfesor'
@@ -55,8 +54,6 @@ module.exports.policies = {
   ContenidoSeccionController: {
     entregaActa: 'isProfesorOrEstudiante'
   },
-=======
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   //
   // IdeaController: {
   //   ideasPropuestas: 'isComite',

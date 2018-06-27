@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 ﻿IPISIS módulo matrícula
-=======
 IPISIS
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 Pre-requisitos
 
     Instalar npm

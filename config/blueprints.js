@@ -161,13 +161,8 @@ module.exports.blueprints = {
 
   actions: true,
   index: true,
-<<<<<<< HEAD
   shortcuts: false, 
   rest: true, //se vuelve false para que no permita realizar el CRUD por medio de la URL
-=======
-  shortcuts: true,
-  rest: true,
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   prefix: '',
   restPrefix: '',
   pluralize: false,
