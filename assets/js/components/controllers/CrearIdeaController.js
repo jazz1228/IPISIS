@@ -92,7 +92,11 @@ function($scope, $state, $ngConfirm, IdeaService, PrerrequisitoService) {
     .catch(function(err) {
       $ngConfirm({
         title: 'Error',
+<<<<<<< HEAD
         content: 'La idea no ha sido inscrita, por favor intente nuevamente.',
+=======
+        content: 'La idea no ha sido sido inscrita, por favor intente nuevamente.',
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
         columnClass: 's',
         type: 'red',
         scope: $scope,

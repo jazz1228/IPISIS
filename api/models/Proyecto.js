@@ -6,7 +6,10 @@
  */
 
 module.exports = {
+<<<<<<< HEAD
 
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   attributes: {
     id: {
       type: Sequelize.INTEGER,
@@ -32,6 +35,7 @@ module.exports = {
         field: 'inscripcion_id'
       }
     });
+<<<<<<< HEAD
     Proyecto.hasMany(Bitacora, {
       as: 'bitacora',
       foreignKey: {
@@ -39,6 +43,9 @@ module.exports = {
         field: 'proyecto_id'
       }
     });
+=======
+
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
     Proyecto.belongsToMany(MateriaCompromiso, {
       through: ProyectoCompromiso,
       as: 'materiaCompromisos',
@@ -47,6 +54,7 @@ module.exports = {
         field: 'proyecto_id'
       }
     });
+<<<<<<< HEAD
     Profesor.hasMany(ProfesorRolCalificacion, {
       as: 'rolProfesor',
       foreignKey: {
@@ -54,6 +62,8 @@ module.exports = {
         field: 'profesor_id'
      } 
     });
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   },
   // Configuraciones y métodos del modelo.
   options: {
@@ -64,4 +74,7 @@ module.exports = {
     hooks: {}
   }
 };
+<<<<<<< HEAD
 
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2

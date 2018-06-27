@@ -17,10 +17,13 @@ module.exports = {
       type: Sequelize.STRING(128),
       field: 'nombre'
     },
+<<<<<<< HEAD
     nombreReal: {
       type: Sequelize.STRING(128),
       field: 'nombre_real'
     },
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
     uri: {
       type: Sequelize.STRING(256),
       field: 'uri'

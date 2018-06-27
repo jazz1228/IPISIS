@@ -13,7 +13,11 @@ module.exports = {
       autoIncrement: true,
       field: 'id'
     }
+<<<<<<< HEAD
   },
+=======
+},
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   // Describe las asociaciones que tiene con los demás modelos.
   associations: function () {
     Oferta.belongsTo(Idea, {
@@ -46,7 +50,11 @@ module.exports = {
         name: 'ofertaId',
         field: 'oferta_id'
       }
+<<<<<<< HEAD
     });
+=======
+    });    
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   },
   // Configuraciones y métodos del modelo.
   options: {

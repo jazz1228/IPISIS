@@ -17,10 +17,13 @@ module.exports = {
       type: Sequelize.TEXT,
       field: 'observacion'
     },
+<<<<<<< HEAD
     nota: {
       type: Sequelize.DOUBLE,
       field: 'nota'
     },
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
     fechaEquipo: {
       type: Sequelize.DATE,
       field: 'fecha_equipo'
@@ -44,6 +47,7 @@ module.exports = {
       }
     });
 
+<<<<<<< HEAD
     ProyectoCompromiso.hasMany(Calificacion, {
       as: 'calificaciones',
       foreignKey: {
@@ -55,11 +59,17 @@ module.exports = {
     ProyectoCompromiso.belongsToMany(Seccion, {
       through: ContenidoSeccion,
       as: 'secciones',
+=======
+    ProyectoCompromiso.belongsToMany(Formato, {
+      through: SeguimientoFormato,
+      as: 'formatos',
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
       foreignKey: {
         name: 'proyectoCompromisoId',
         field: 'proyecto_compromiso_id'
       }
     });
+<<<<<<< HEAD
 
 
     ProyectoCompromiso.belongsTo(MateriaCompromiso, {
@@ -77,6 +87,8 @@ module.exports = {
         field: 'proyecto_id'
       }
     });
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   },
   // Configuraciones y métodos del modelo.
   options: {

@@ -16,5 +16,15 @@ ipisis.controller('ListaIdeasController', ["$scope", "IdeaService", function($sc
     $scope.proponentes = idea.proponentes;
     $scope.asignaturas = idea.asignaturas;
     $scope.prerrequisitos = idea.prerrequisitos;
+<<<<<<< HEAD
   };
 }]);
+=======
+  };  
+    
+    
+}]);
+
+
+
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2

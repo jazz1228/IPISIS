@@ -348,6 +348,7 @@ module.exports = {
 		.catch(err => {
 			return res.serverError(err);
 		});
+<<<<<<< HEAD
 	},
 
 	getByCurso: function (req,res) {
@@ -392,5 +393,7 @@ module.exports = {
 		.catch(err => {
 			return res.serverError(err);
 		});
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 	}
 };

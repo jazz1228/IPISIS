@@ -21,7 +21,11 @@ module.exports = {
       type: Sequelize.TEXT,
       field: 'descripcion'
     },
+<<<<<<< HEAD
     porcentaje: {
+=======
+    procentaje: {
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
       type: Sequelize.INTEGER,
       field: 'porcentaje'
     },
@@ -45,9 +49,15 @@ module.exports = {
       type: Sequelize.DATE,
       field: 'fecha_tutor'
     },
+<<<<<<< HEAD
     calificable: {
       type: Sequelize.BOOLEAN,
       field: 'calificable'
+=======
+    reporte: {
+      type: Sequelize.BOOLEAN,
+      field: 'reporte'
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
     }
   },
   // Describe las asociaciones que tiene con los demás modelos.
@@ -76,6 +86,7 @@ module.exports = {
       }
     });
 
+<<<<<<< HEAD
     MateriaCompromiso.hasMany(ProyectoCompromiso, {
       as: 'proyectoCompromiso',
       foreignKey: {
@@ -84,6 +95,8 @@ module.exports = {
       }
     });
 
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
     MateriaCompromiso.belongsToMany(Formato, {
       through: CompromisoFormato,
       as: 'formatos',

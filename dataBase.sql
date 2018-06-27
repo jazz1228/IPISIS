@@ -135,7 +135,10 @@ DROP TABLE IF EXISTS `equipo_estudiante`;
 CREATE TABLE `equipo_estudiante` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `estado_invitacion` varchar(16) DEFAULT NULL,
+<<<<<<< HEAD
   `estado_acta` varchar(16) DEFAULT NULL,
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   `equipo_codigo` int(11) DEFAULT NULL,
   `estudiante_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -243,7 +246,10 @@ CREATE TABLE `idea` (
   `descripcion` text,
   `num_miembros` int(11) DEFAULT NULL,
   `num_equipos` int(11) DEFAULT NULL,
+<<<<<<< HEAD
   `max_miembros` int(11) DEFAULT NULL,
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -326,7 +332,11 @@ CREATE TABLE `materia_compromiso` (
   `adjunto` tinyint(1) DEFAULT NULL,
   `completa_tutor` tinyint(1) DEFAULT NULL,
   `fecha_tutor` datetime DEFAULT NULL,
+<<<<<<< HEAD
   `calificable` tinyint(1) DEFAULT NULL,
+=======
+  `reporte` tinyint(1) DEFAULT NULL,
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   `materia_codigo` int(11) DEFAULT NULL,
   `semestre_codigo` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -458,6 +468,7 @@ CREATE TABLE `proyecto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+<<<<<<< HEAD
 
 -- Table: bitacora
 DROP TABLE IF EXISTS `bitacora`;
@@ -489,6 +500,8 @@ CREATE TABLE `bitacora_adj_proyecto` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 );
 
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 --
 -- Table structure for table `proyecto_compromiso`
 --
@@ -499,7 +512,10 @@ DROP TABLE IF EXISTS `proyecto_compromiso`;
 CREATE TABLE `proyecto_compromiso` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `observacion` text,
+<<<<<<< HEAD
   `nota` float(1,1),
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   `fecha_equipo` datetime DEFAULT NULL,
   `fecha_tutor` datetime DEFAULT NULL,
   `estado` varchar(64) DEFAULT NULL,
@@ -513,6 +529,7 @@ CREATE TABLE `proyecto_compromiso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+<<<<<<< HEAD
 
 --
 -- Table structure for table `profesor_rol_calificacion`
@@ -562,6 +579,8 @@ CREATE TABLE `calificacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 --
 -- Table structure for table `seccion`
 --
@@ -574,7 +593,10 @@ CREATE TABLE `seccion` (
   `orden` int(11) DEFAULT NULL,
   `nombre` varchar(128) DEFAULT NULL,
   `contenido` text,
+<<<<<<< HEAD
   `peso` double(3,2),
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   `formato_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `formato_id` (`formato_id`),

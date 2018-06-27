@@ -29,10 +29,14 @@
     "bootstrap-select": "~1.11.2",
     "bootstrap-multiselect": "~0.9.13",
     "angular-confirm": "angular1-confirm#^1.1.0",
+<<<<<<< HEAD
     "angular-file-saver": "^1.1.3",
     "ckeditor": "#full/4.4.7",
     "angular-ckeditor": "^1.0.3",
     "angular-sanitize": "~1.5.8",
     "angular-ckeditor-placeholder": "^0.1.4"
+=======
+    "angular-file-saver": "^1.1.3"
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   }
 }

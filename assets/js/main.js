@@ -1,6 +1,10 @@
 'use stric';
 var ipisis = angular.module('ipisis', ['ui.router', 'permission', 'permission.ui', 'ui.bootstrap',
+<<<<<<< HEAD
 	'ngMessages' , 'ngPassword', 'ngAnimate', 'cp.ngConfirm', 'ngFileSaver', 'ckeditor', 'ngSanitize']);
+=======
+	'ngMessages' , 'ngPassword', 'ngAnimate', 'cp.ngConfirm', 'ngFileSaver']);
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 
 // Inicializacion de la configuracion principal al ingresar al dominio.
 ipisis.run(['$rootScope', 'StorageService','PermRoleStore', 'ROLES',

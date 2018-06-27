@@ -41,6 +41,7 @@ module.exports = {
         field: 'profesor_id'
       }
     });
+<<<<<<< HEAD
 
     Profesor.hasMany(ProfesorRolCalificacion, {
       as: 'rolProfesor',
@@ -49,6 +50,9 @@ module.exports = {
         field: 'profesor_id'
      } 
     });
+=======
+    
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   },
   // Configuraciones y métodos del modelo.
   options: {

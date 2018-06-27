@@ -24,6 +24,13 @@ var storageTipo = 'session';
 				PermRoleStore.defineRole(ROLES.ESTUDIANTE, function() {return false;});
 				PermRoleStore.defineRole(rol, function() {return true;});
 
+<<<<<<< HEAD
+=======
+
+				console.log(res.config.params.username);
+ 				StorageService.set("userSession", res.config.params.username, storageTipo);
+
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 				StorageService.set("auth_token", res.data.token, storageTipo);
 				StorageService.set("rol", rol, storageTipo);
 				$rootScope.$broadcast('renovarRol');
@@ -40,6 +47,10 @@ var storageTipo = 'session';
 			PermRoleStore.defineRole(ROLES.COMITE, function() {return false;});
 			PermRoleStore.defineRole(ROLES.PROFESOR, function() {return false;});
 			PermRoleStore.defineRole(ROLES.ESTUDIANTE, function() {return false;});
+<<<<<<< HEAD
+=======
+			StorageService.unset("userSession", storageTipo);
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 			StorageService.unset("auth_token", storageTipo);
 			StorageService.unset("rol", storageTipo);
 			$rootScope.$broadcast('renovarRol');
@@ -58,6 +69,13 @@ var storageTipo = 'session';
 			return StorageService.get("rol", storageTipo);
 		},
 
+<<<<<<< HEAD
+=======
+		getUser: function(){
+			return StorageService.get("userSession", storageTipo);
+		},
+
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 		// Servicio que autentica un estudiante en el sístema.
 		validarEstudiante: function (credenciales, token) {
 			var estudiante = $http({
@@ -95,6 +113,10 @@ function($q, $injector, $rootScope, ROLES) {
 			if (response.status === 401 || response.status === 403) {
 				StorageService.unset('auth_token', storageTipo);
 				StorageService.unset('rol', storageTipo);
+<<<<<<< HEAD
+=======
+				StorageService.unset("userSession", storageTipo);
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 				PermRoleStore.clearStore();
 				PermRoleStore.defineRole(ROLES.ANON, function() {return true;});
 				PermRoleStore.defineRole(ROLES.JEFE, function() {return false;});

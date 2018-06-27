@@ -83,6 +83,10 @@ module.exports = {
       return res.badRequest({code: 1, msg:'Debe ingresar una observación.'});
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
     if (accion == 1) {
       estado = 'ACEPTADA';
       grupo_Mares = req.param('grupoMares');
@@ -151,12 +155,16 @@ module.exports = {
             };
             return  HistorialInscripcion.create(historial, {transaction: t})
             .then( resHistorialInscripcion => {
+<<<<<<< HEAD
               
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
               var proyecto = {
                 inscripcionId: resInscripcion.id,
                 grupoMares: grupo_Mares,
                 nombre: resInscripcion.oferta.idea.titulo
               }
+<<<<<<< HEAD
               return Proyecto.create(proyecto, {transaction: t})
               .then(resProyecto =>{
                   return Inscripcion.findOne({ where: {id:resInscripcion.id},include:{ model: Oferta, as: 'oferta'}})
@@ -200,6 +208,9 @@ module.exports = {
                       });
                   });              
               });
+=======
+              return Proyecto.create(proyecto, {transaction: t});
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
             });
           });
         });
@@ -264,4 +275,8 @@ module.exports = {
       return res.serverError(err);
     });
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2

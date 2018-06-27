@@ -25,6 +25,7 @@ module.exports = {
   // Describe las asociaciones que tiene con los demás modelos.
   associations: function () {
 
+<<<<<<< HEAD
     CompromisoFormato.belongsTo(MateriaCompromiso, {
       as: 'materiaCompromiso',
       foreignKey: {
@@ -40,6 +41,8 @@ module.exports = {
         field: 'formato_id' 
       }
     });
+=======
+>>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   },
   // Configuraciones y métodos del modelo.
   options: {
