@@ -300,7 +300,7 @@ module.exports = {
          <ul>  
           <li>Nombre de la idea :<h3>`+title+`</h3></li>`
           +`<li>Estado de la idea :`+historial.estado+`</li>`
-        +`<li>Observaciones :<p>`+historial.observacion+`</p>></li>
+        +`<li>Observaciones :<p>`+historial.observacion+`</p></li>
         </ul>
        <p>Correo automatico de IPISIS</p>
        `;
