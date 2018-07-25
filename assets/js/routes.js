@@ -144,7 +144,6 @@ function($stateProvider, $urlRouterProvider, ROLES){
 			}
 		}
 	})
-<<<<<<< HEAD
 	.state("equipo.listar-bitacora", {
         url: "/proyecto/listar-bitacora",
         templateUrl: "templates/private/equipo/listar-bitacora.html",
@@ -189,11 +188,6 @@ function($stateProvider, $urlRouterProvider, ROLES){
 		templateUrl: "templates/private/equipo/compromisos.html",
 		controller: "CompromisosEquipoController",
 		params: {equipo: null},
-=======
-	.state("equipo.proyecto", {
-		url: "/proyecto",
-		templateUrl: "templates/private/equipo/proyecto.html",
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 		data: {
 			permissions: {
 				only: ROLES.ESTUDIANTE,
@@ -230,7 +224,6 @@ function($stateProvider, $urlRouterProvider, ROLES){
 			}
 		}
 	})
-<<<<<<< HEAD
 	.state("listaProyectos", {
 		url: "/listaProyectos",
 		templateUrl: "templates/private/profesor/listaProyectos.html",
@@ -288,12 +281,6 @@ function($stateProvider, $urlRouterProvider, ROLES){
 		templateUrl: "templates/private/equipo/compromisos.html",
 		controller: "CompromisosEquipoController",
 		params: {equipo: null,profesor:null},
-=======
-	.state("misIdeas", {
-		url: "/mis-ideas",
-		templateUrl: "templates/private/profesor/mis-ideas.html",
-		controller: "MisIdeasController",
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 		data: {
 			permissions: {
 				only: ROLES.PROFESOR,
@@ -301,11 +288,20 @@ function($stateProvider, $urlRouterProvider, ROLES){
 				redirectTo: 'signin'
 			}
 		}
-<<<<<<< HEAD
-	});;
-=======
+	})
+	.state("misIdeas", {
+		url: "/mis-ideas",
+		templateUrl: "templates/private/profesor/mis-ideas.html",
+		controller: "MisIdeasController",
+
+		data: {
+			permissions: {
+				only: ROLES.PROFESOR,
+				except: ROLES.ANON,
+				redirectTo: 'signin'
+			}
+		}
 	});
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 
 	/**
 	*  RUTAS DE ACCESO DEL COMITÉ
@@ -333,7 +329,6 @@ function($stateProvider, $urlRouterProvider, ROLES){
 				redirectTo: 'signin'
 			}
 		}
-<<<<<<< HEAD
 	})
 	.state("configuraciones",{
 		url: "/configuraciones",
@@ -384,10 +379,6 @@ function($stateProvider, $urlRouterProvider, ROLES){
 			}
 		}
 	});
-=======
-	});
-
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 	/**
 	* RUTAS DE ACCESO DEL JEFE
 	*/
