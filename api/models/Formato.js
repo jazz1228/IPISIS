@@ -13,7 +13,6 @@ module.exports = {
       autoIncrement: true,
       field: 'id'
     },
-<<<<<<< HEAD
     encabezado: {
       type: Sequelize.TEXT,
       field: 'encabezado'
@@ -26,8 +25,6 @@ module.exports = {
       type:  Sequelize.BOOLEAN,
       field: 'tipoActa'
     },
-=======
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
     titulo: {
       type: Sequelize.STRING(128),
       field: 'titulo'
@@ -55,8 +52,6 @@ module.exports = {
         field: 'formato_id'
       }
     });
-<<<<<<< HEAD
-=======
 
     Formato.belongsToMany(ProyectoCompromiso, {
       through: SeguimientoFormato,
@@ -66,7 +61,6 @@ module.exports = {
         field: 'formato_id'
       }
     });
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   },
   // Configuraciones y métodos del modelo.
   options: {

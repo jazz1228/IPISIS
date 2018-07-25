@@ -21,7 +21,6 @@ module.exports = {
       type: Sequelize.STRING(128),
       field: 'nombre'
     },
-<<<<<<< HEAD
     guia: {
       type: Sequelize.TEXT,
       field: 'guia'
@@ -29,11 +28,6 @@ module.exports = {
     peso: {
       type: Sequelize.DOUBLE,
       field: 'peso'
-=======
-    contenido: {
-      type: Sequelize.TEXT,
-      field: 'contenido'
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
     }
   },
   // Describe las asociaciones que tiene con los demás modelos.
@@ -45,7 +39,6 @@ module.exports = {
         field: 'formato_id'
       }
     });
-<<<<<<< HEAD
     Seccion.belongsToMany(ProyectoCompromiso, {
       through: ContenidoSeccion,
       as: 'proyectoCompromisos',
@@ -54,8 +47,6 @@ module.exports = {
         field: 'seccion_id'
       }
     });
-=======
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   },
   // Configuraciones y métodos del modelo.
   options: {

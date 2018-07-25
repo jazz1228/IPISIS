@@ -8,13 +8,8 @@ function ($scope, $log, $state, $stateParams, $ngConfirm, EquipoService, Estudia
       $ngConfirm({content: 'Debe aceptar la invitacion primero.', title: '', type: 'red', backgroundDismiss: true});
       return;
     }
-<<<<<<< HEAD
     
     $state.go('equipo.informacion', {equipo: equipo})
-=======
-
-    $state.go('equipo', {equipo: equipo})
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   }
 
   $scope.salirEquipo = function (equipo) {

@@ -16,7 +16,6 @@ angular.module('ipisis')
 				method: 'GET',
 			});
 			return estudiante;
-<<<<<<< HEAD
 		},
 		getBitacoras: function(credenciales){
 			var bitacoras = $http({
@@ -62,8 +61,5 @@ angular.module('ipisis')
 			});
 			return project;
 		},
-=======
-		}
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 	};
 }]);

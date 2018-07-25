@@ -43,7 +43,6 @@ module.exports = {
         field: 'estudiante_id'
       }
     });
-<<<<<<< HEAD
 
     Estudiante.hasMany(Calificacion, {
       as: 'calificaciones',
@@ -52,8 +51,6 @@ module.exports = {
         field: 'estudiante_id'
       }
     });
-=======
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   },
   // Configuraciones y métodos del modelo.
   options: {

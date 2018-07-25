@@ -26,8 +26,6 @@ angular.module('ipisis')
       });
       return ideas;
     },
-<<<<<<< HEAD
-=======
     obtenerMisIdeas: function (user) {
       var ideas = $http({
         url: '/idea/misIdeas',
@@ -36,7 +34,6 @@ angular.module('ipisis')
       });
       return ideas;
     },
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 
     obtenerAsignaturas: function () {
       var asignaturas = $http({

@@ -61,7 +61,6 @@ angular.module('ipisis')
 				data: credenciales
 			});
 			return equipo
-<<<<<<< HEAD
 		},
 
 		obtenerFormatoActa: function () {
@@ -96,8 +95,5 @@ angular.module('ipisis')
 			return usuarios
 		}
 
-=======
-		}
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 	};
 }]);

@@ -26,11 +26,7 @@ function ($scope, $log, $state, $ngConfirm, EquipoService, EstudianteService) {
     .then(function (res) {
       $scope.estudiantes.push(res.data);
     })
-<<<<<<< HEAD
     .catch(function (err) { 
-=======
-    .catch(function (err) {
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
       $ngConfirm({content: 'El estudiante no se ha encontrado.', title: '', type: 'red', backgroundDismiss: true});
       $log.log(err);
     });
