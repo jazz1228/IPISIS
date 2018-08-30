@@ -47,13 +47,10 @@ var jsFilesToInject = [
   'bower_components/angular-messages/angular-messages.js',
   'bower_components/angular-password/angular-password.js',
   'bower_components/angular-confirm/dist/angular-confirm.min.js',
-<<<<<<< HEAD
   'bower_components/ckeditor/ckeditor.js',
   'bower_components/angular-ckeditor/angular-ckeditor.js',
   'bower_components/angular-ckeditor-placeholder/angular-ckeditor-placeholder.js',
   'bower_components/angular-sanitize/angular-sanitize.js',
-=======
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   'js/main.js',
   'js/routes.js',
   'js/ideas.js',

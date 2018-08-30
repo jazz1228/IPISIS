@@ -8,11 +8,7 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.http.html
  */
-<<<<<<< HEAD
 const express = require('express');
-=======
-
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
 module.exports.http = {
 
   /****************************************************************************
@@ -57,19 +53,12 @@ module.exports.http = {
   * Example custom middleware; logs each request to the console.              *
   *                                                                           *
   ****************************************************************************/
-<<<<<<< HEAD
-=======
-
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
     // myRequestLogger: function (req, res, next) {
     //     console.log("Requested :: ", req.method, req.url);
     //     return next();
     // }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
   /***************************************************************************
   *                                                                          *
   * The body parser that will handle incoming multipart HTTP requests. By    *
@@ -101,7 +90,3 @@ module.exports.http = {
 
   // cache: 31557600000
 };
-<<<<<<< HEAD
-
-=======
->>>>>>> a73044b223a0a845ccb4dcf491ecf6a00e3902c2
